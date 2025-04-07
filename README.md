@@ -1,6 +1,16 @@
-A Rest API made with Node.js and Express.
+A basic Rest API made with Node.js and Express.
 
 ## Getting Started
+
+Create an '.env' file with the following variables:
+
+```env
+MYSQL_HOST = '127.0.0.1'
+MYSQL_USER = 'root'
+MYSQL_PASSWORD = ''
+MYSQL_DATABASE = 'express_rest_api'
+MYSQL_PORT = 3306
+```
 
 To run the server use:
 

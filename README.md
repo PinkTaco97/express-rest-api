@@ -5,6 +5,10 @@ A basic Rest API made with Node.js and Express.
 Create an '.env' file with the following variables:
 
 ```env
+# Server Configuration
+SERVER_PORT = 3000
+
+# MYSQL Configuration
 MYSQL_HOST = '127.0.0.1'
 MYSQL_USER = 'root'
 MYSQL_PASSWORD = ''

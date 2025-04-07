@@ -3,6 +3,9 @@ import express from 'express';
 // Controllers.
 import { getNotes, getNote, createNote } from '../controllers/notes.controller.js';
 
+// Constants.
+import { HTTP_RESPONSE } from '../constants/common.constants.js';
+
 const notesRouter = express.Router();
 
 notesRouter.get('/', async (req, res) => {
@@ -19,7 +22,7 @@ notesRouter.get('/:id', async (req, res) => {
 notesRouter.post('/', async (req, res) => {
     const { title, contents } = req.body;
     const note = await createNote(title, contents);
-    res.status(201).send(note);
+    res.status(HTTP_RESPONSE.CREATED).send(note);
 });
 
 export default notesRouter;

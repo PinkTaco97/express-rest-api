@@ -9,14 +9,14 @@ import { HTTP_RESPONSE } from './constants/common.constants.js';
 
 // Environment variables.
 dotenv.config();
-const { SERVER_PORT } = process.env;
+const { SERVER_PORT, SERVER_BASE_PATH } = process.env;
 
 // Initialise Express server.
 const app = express();
 app.use(express.json());
 
 // Application routes.
-app.use('/notes', NotesRouter);
+app.use(`${SERVER_BASE_PATH}/notes`, NotesRouter);
 
 app.use((err, req, res, next) => {
     console.error(err.stack);

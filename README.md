@@ -7,6 +7,7 @@ Create an '.env' file with the following variables:
 ```env
 # Server Configuration
 SERVER_PORT = 3000
+SERVER_BASE_PATH = '/api'
 
 # MYSQL Configuration
 MYSQL_HOST = '127.0.0.1'

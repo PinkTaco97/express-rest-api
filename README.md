@@ -12,7 +12,7 @@ MYSQL_DATABASE = 'express_rest_api'
 MYSQL_PORT = 3306
 ```
 
-Install the projecct dependancies using:
+Install the project dependancies using:
 ```bash
 npm install
 ```

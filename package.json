@@ -1,0 +1,30 @@
+{
+  "name": "express-rest-api",
+  "version": "1.0.0",
+  "description": "A Rest API made with Node.js and Express.",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx nodemon src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PinkTaco97/express-rest-api.git"
+  },
+  "keywords": [],
+  "author": "Nathan Robertson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PinkTaco97/express-rest-api/issues"
+  },
+  "homepage": "https://github.com/PinkTaco97/express-rest-api#readme",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "mysql2": "^3.14.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}

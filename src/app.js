@@ -1,5 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import cors from 'cors';
 
 // Routes.
 import NotesRouter from './routes/notes.route.js';
@@ -14,6 +15,15 @@ const { SERVER_PORT, SERVER_BASE_PATH } = process.env;
 // Initialise Express server.
 const app = express();
 app.use(express.json());
+
+// CROSS-ORIGIN-ALLOW-ALL
+const corsOptions = {
+    origin: '*',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
+};
+app.use(cors(corsOptions));
 
 // Application routes.
 app.use(`${SERVER_BASE_PATH}/notes`, NotesRouter);

@@ -37,7 +37,7 @@ notesRouter.put('/:id', async (req, res) => {
     res.status(HTTP_RESPONSE.OK).send(note);
 });
 
-// Create a new note.
+// Delete a new note.
 notesRouter.delete('/:id', async (req, res) => {
     const { id } = req.params;
     const note = await notesController.deleteNote(id);

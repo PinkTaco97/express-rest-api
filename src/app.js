@@ -4,6 +4,7 @@ import cors from 'cors';
 
 // Routes.
 import NotesRouter from './routes/notes.route.js';
+import UserRouter from './routes/user.route.js';
 
 // Constants.
 import { HTTP_RESPONSE } from './constants/common.constants.js';
@@ -27,6 +28,7 @@ app.use(cors(corsOptions));
 
 // Application routes.
 app.use(`${SERVER_BASE_PATH}/notes`, NotesRouter);
+app.use(`${SERVER_BASE_PATH}/users`, UserRouter);
 
 app.use((err, req, res, next) => {
     console.error(err.stack);

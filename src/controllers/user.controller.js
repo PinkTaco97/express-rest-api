@@ -1,6 +1,6 @@
 import { DB } from '../database.js';
 
-export async function createNote(email, password) {
+export async function createUser(email, password) {
     console.log("Creating User...");
     const [result] = await DB.query(`
         INSERT INTO user (email, password)

@@ -15,9 +15,14 @@ MYSQL_USER = 'root'
 MYSQL_PASSWORD = ''
 MYSQL_DATABASE = 'express_rest_api'
 MYSQL_PORT = 3306
+
+# JWT Configuration
+JWT_SECRET = 'secret'
+JWT_EXPIRATION = '1h'
 ```
 
 Install the project dependancies using:
+
 ```bash
 npm install
 ```

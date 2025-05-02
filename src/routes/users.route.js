@@ -1,42 +1,25 @@
-import express from 'express';
+// Import Express.
+import express from "express";
 
 // Controllers.
-import * as usersController from '../controllers/users.controller.js';
-
-// Constants.
-import { HTTP_RESPONSE } from '../constants/common.constants.js';
+import * as userController from "../controllers/users.controller.js";
 
 // Initialise Express router.
 const userRouter = express.Router();
 
 // Create new User.
-userRouter.post('/', async (req, res) => {
-    const { email, password } = req.body;
-    const user = await usersController.createUser(email, password);
-    res.status(HTTP_RESPONSE.CREATED).send(user);
-});
+userRouter.post("/", userController.createUser);
 
 // Read specific User by ID.
-userRouter.get('/:id', async (req, res) => {
-    const { id } = req.params;
-    const user = await usersController.getUser(id);
-    res.send(user);
-});
-
+userRouter.get("/:id", userController.getUser);
 
 // Update User.
-userRouter.put('/:id', async (req, res) => {
-    const { id } = req.params;
-    const { email, password } = req.body;
-    const user = await usersController.updateUser(id, email, password);
-    res.status(HTTP_RESPONSE.OK).send(user);
-});
+userRouter.put("/:id", userController.updateUser);
 
 // Delete User.
-userRouter.delete('/:id', async (req, res) => {
-    const { id } = req.params;
-    const note = await usersController.deleteUser(id);
-    res.status(HTTP_RESPONSE.OK).send(note);
-});
+userRouter.delete("/:id", userController.deleteUser);
+
+// Login User.
+userRouter.post("/login", userController.loginUser);
 
 export default userRouter;

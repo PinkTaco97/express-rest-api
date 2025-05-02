@@ -4,6 +4,9 @@ import bcrypt from "bcrypt";
 // Import jsonwebtoken for creating JWT tokens
 import jwt from "jsonwebtoken";
 
+// Import dotenv for environment variable management
+import dotenv from "dotenv";
+
 // Database connection.
 import DB from "../database.js";
 
@@ -12,6 +15,10 @@ import {
   HTTP_RESPONSE,
   ERROR_MESSAGES,
 } from "../constants/common.constants.js";
+
+// Environment variables.
+dotenv.config();
+const { JWT_SECRET, JWT_EXPIRATION } = process.env;
 
 export async function createUser(req, res) {
   console.log("Creating User...");
@@ -199,11 +206,9 @@ export async function loginUser(req, res) {
         .json({ message: ERROR_MESSAGES.INVALID_CREDENTIALS });
 
     // Generate a JWT token for the user
-    const token = jwt.sign(
-      { id: user.id, email: user.email },
-      process.env.JWT_SECRET,
-      { expiresIn: process.env.JWT_EXPIRATION }
-    );
+    const token = jwt.sign({ id: user.id, email: user.email }, JWT_SECRET, {
+      expiresIn: JWT_EXPIRATION,
+    });
 
     // Respond with the token and user data
     res.status(HTTP_RESPONSE.OK).json({

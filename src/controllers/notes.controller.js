@@ -33,10 +33,6 @@ export async function getNotes(req, res) {
   }
 }
 
-// const { id } = req.params;
-// const note = await notesController.getNote(id);
-// res.send(note);
-
 export async function getNote(req, res) {
   console.log("Retrieving note...");
 

@@ -6,14 +6,18 @@ import dotenv from "dotenv";
 
 // Load environment variables from .env file
 dotenv.config();
+const { MYSQL_HOST, MYSQL_USER, MYSQL_PASSWORD, MYSQL_DATABASE, MYSQL_PORT } =
+  process.env;
 
 // Create a connection pool to the MySQL database using environment variables
-export default DB = mysql
+const DB = mysql
   .createPool({
-    host: process.env.MYSQL_HOST,
-    user: process.env.MYSQL_USER,
-    password: process.env.MYSQL_PASSWORD,
-    database: process.env.MYSQL_DATABASE,
-    port: process.env.MYSQL_PORT,
+    host: MYSQL_HOST,
+    user: MYSQL_USER,
+    password: MYSQL_PASSWORD,
+    database: MYSQL_DATABASE,
+    port: MYSQL_PORT,
   })
   .promise();
+
+export default DB;

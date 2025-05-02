@@ -20,4 +20,6 @@ const DB = mysql
   })
   .promise();
 
-export default DB;
+export default {
+  query: (...args) => DB.query(...args), // Expose the query method for executing SQL queries
+};

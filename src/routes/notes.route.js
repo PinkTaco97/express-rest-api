@@ -1,47 +1,24 @@
-import express from 'express';
+import express from "express";
 
 // Controllers.
-import * as notesController from '../controllers/notes.controller.js';
-
-// Constants.
-import { HTTP_RESPONSE } from '../constants/common.constants.js';
+import * as notesController from "../controllers/notes.controller.js";
 
 // Initialise Express router.
 const notesRouter = express.Router();
 
 // Retrieve all notes.
-notesRouter.get('/', async (req, res) => {
-    const notes = await notesController.getNotes();
-    res.send(notes);
-});
+notesRouter.get("/", notesController.getNotes);
 
 // Retrieve specific note by ID.
-notesRouter.get('/:id', async (req, res) => {
-    const { id } = req.params;
-    const note = await notesController.getNote(id);
-    res.send(note);
-});
+notesRouter.get("/:id", notesController.getNote);
 
 // Create a new note.
-notesRouter.post('/', async (req, res) => {
-    const { title, contents } = req.body;
-    const note = await notesController.createNote(title, contents);
-    res.status(HTTP_RESPONSE.CREATED).send(note);
-});
+notesRouter.post("/", notesController.createNote);
 
 // Update an existing note.
-notesRouter.put('/:id', async (req, res) => {
-    const { id } = req.params;
-    const { title, contents } = req.body;
-    const note = await notesController.updateNote(id, title, contents);
-    res.status(HTTP_RESPONSE.OK).send(note);
-});
+notesRouter.put("/:id", notesController.updateNote);
 
 // Delete a new note.
-notesRouter.delete('/:id', async (req, res) => {
-    const { id } = req.params;
-    const note = await notesController.deleteNote(id);
-    res.status(HTTP_RESPONSE.OK).send(note);
-});
+notesRouter.delete("/:id", notesController.deleteNote);
 
 export default notesRouter;
